@@ -1,16 +1,20 @@
-package com.example.spinnerautomulticompletetextview
+package com.example.taskwebgridcardview
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.example.taskwebgridcardview.R
 
 open class AppCompatActivityWithExitMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = getString(R.string.app_name)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+            ?: throw RuntimeException("Super method must be call after setContentView() " +
+                    "or your layout doesn't contain view with id=\"@+id/toolbar\"")
+        setSupportActionBar(toolbar)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
